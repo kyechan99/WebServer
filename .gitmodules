@@ -1,0 +1,3 @@
+[submodule "WebServer/core"]
+	path = WebServer/core
+	url = https://github.com/KGSHCommunity/Core.git
