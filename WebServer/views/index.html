@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--<script src="https://unpkg.com/vue"></script>-->
+    <script src="javascripts/vue.js"></script>
+    <title>KGSH Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/signin.css">
+    <link rel="stylesheet" href="stylesheets/cover.css">
+</head>
+
+<body>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container" id="login">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand"><a href="">KGSH Community</a></h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">메뉴1</a></li>
+                            <li><a href="#">메뉴2</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div> <!-- masthead clearfix -->
+
+            <div class="nner cover">
+                <form class="form-signin" id="signin_form" name="signin_form" action="signin_check.php" method="post" v-show="signup_seen === false">
+                    <input type="email" id='signin_email' name='signin_email' class="form-control" placeholder="Email address" required autofocus>
+                    <input v-if="pw_seen" type="password" id="signin_pw" name='signin_pw' class="form-control" placeholder="Password" required>
+
+                    <button v-if="!pw_seen" v-on:click="pw_see" class="btn btn-lg btn-primary btn-block" type="submit">다음 -></button>
+                    <input id='signin_BT' v-show='pw_seen' type='button'  class='btn btn-lg btn-primary btn-block' value='Login'>
+                    <a v-on:click="signup_see" class="text-capitalize" href="#signup">create account</a>
+                </form>
+            </div> <!-- nner cover -->
+            <div id="msg"></div>
+
+            <div class="nner cover">
+                <form class="form-signin" id="signup_form" name="signup_form" action="/signup" method="post" v-show="signup_seen === true">
+                    <h2 class="form-signin-heading">회원가입</h2>
+
+                    <input type="email" id='signup_email' name='signup_email' class="form-control" placeholder="Email address" onfocusout="checkInputFocousOut()" required autofocus>
+                    <input type="text" id="signup_nick" name="signup_nick" class="form-control" placeholder="Nickname" required>
+                    <input type="password" id="signup_pw" name="signup_pw" class="form-control" placeholder="Password" required>
+                    <input type="password" id="signup_repw" name="inputRePw" class="form-control" placeholder="Re Password" required>
+                    <input type="text" id="signup_cp" name="signup_cp" class="form-control" placeholder="CP" required>
+                    <input type="text" id="signup_job" name="signup_job" class="form-control" placeholder="JOB" required>
+                    <input type="text" id="signup_co" name="signup_co" class="form-control" placeholder="Company" required>
+                    <input type="text" id="signup_country" name="signup_country" class="form-control" placeholder="Country" required>
+                    <input type="text" id="signup_city" name="signup_city" class="form-control" placeholder="City" required>
+                    <input type="number" id="signup_flag" name="signup_flag" class="form-control" placeholder="Flag" required>
+
+                    <div class="checkbox text-left">
+                        <label>
+                            <input type='checkbox' value="agree"> 이용약관에 동의합니다.
+                        </label>
+                    </div>
+                    <!--<button id="signup_BT" class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>-->
+                    <input id='signup_BT' type='button' class='btn btn-lg btn-primary btn-block' value='SignUP'>
+                </form> <!-- 회원가입 폼 -->
+            </div> <!-- nner cover -->
+
+            <!--<div v-if="!signup_seen">
+              <form class="form-signin" id="signin_form" name="signin_form"  action="signin_check.php" method="post">
+                <h2 class="form-signin-heading">로그인</h2>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+                <label v-if="pw_seen"  for="inputPassword" class="sr-only">Password</label>
+                <input v-if="pw_seen" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                <div class="checkbox text-left">
+                  <label v-if="pw_seen">
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+
+                <button v-if="!pw_seen" v-on:click="pw_see" class="btn btn-lg btn-primary btn-block" type="submit">다음 -></button>
+                <button id ="signup_BT" v-if="pw_seen" class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+                <a  v-on:click="signup_see" class="text-capitalize">create account</a>
+              </form> <!-- 로그인 폼 -->
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Copyright 2017. <a href="#"></a>G <a href=""></a>.</p>
+                </div>
+            </div> <!-- mastfoot -->
+        </div> <!-- cover-container -->
+    </div> <!-- site-wrapper-inner -->
+</div> <!-- site-wrapper -->
+
+<!--<script src="https://unpkg.com/vue"></script>-->
+<script src="javascripts/login.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var canRegister = false;
+
+    function checkInputFocousOut() {
+        var form_data = {
+            email:  $("#signup_email").val()
+        };
+        $.ajax ({
+            type: "POST",
+            url: "/signup/overlap",
+            data: form_data,
+            success: function(response) {
+                if (response === true) {
+                    $("#msg").html("이미 있는 이메일 입니다.");
+                    canRegister = false;
+                }
+                else {
+                    $("#msg").html(response);
+                    canRegister = true;
+                }
+            }
+        });
+    }
+
+    // 회원가입 전송 함수
+    $(document).ready( function() {
+        $("#signup_BT").click( function() {
+            var action = $("#signup_form").attr('action');
+            var form_data = {
+                name:  $("#signup_nick").val(),
+                email:  $("#signup_email").val(),
+                password:  $("#signup_pw").val(),
+                grade:  $("#signup_flag").val(),
+                phone:  $("#signup_cp").val(),
+                city:  $("#signup_city").val(),
+                country:  $("#signup_country").val(),
+                company:  $("#signup_co").val(),
+                job:  $("#signup_job").val()
+            };
+            if (canRegister==true) {
+                $.ajax({
+                    type: "POST",
+                    url: action,
+                    data: form_data,
+                    success: function (response) {
+                        if (response === true) {
+                            $("#msg").html("회원가입 완료");
+                            $("#signup_form").slideUp('slow');
+                        }
+                        else {
+                            $("#msg").html(response);
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+
+        // 로그인 확인 함수
+        $("#signin_BT").click( function() {
+            var action = $("#signin_form").attr('action');
+            var form_data = {
+                signup_email:  $("#signin_email").val(),
+                is_ajax: 1
+            };
+            $.ajax ({
+                type: "POST",
+                url: action,
+                data: form_data,
+                success: function(response) {
+                    if (response == 'success') {
+                        $("#msg").html("SUCCESS");
+                        $("#signin_form").slideUp('slow');
+                    }
+                    else if (response == 'id_have') {
+                        $("#msg").html("아이디가 이미 있습니다.");
+                    }
+                    else {
+                        $("#msg").html("잘못된 입력입니다.");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

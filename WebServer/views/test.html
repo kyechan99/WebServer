@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> title </title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300|Roboto+Mono">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/animation.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<h1> Test Web </h1>
+<br/>
+<br/>
+<br/>
+<H3> post (board/post) </H3>
+<form method='post' enctype="multipart/form-data" action='/board/post'>
+    <br/>
+    <br/>
+    <input type="text" placeholder="이름" name="name">
+    <input type="email" placeholder="이메일" name="email">
+    <textarea placeholder="내용 입력" name="content"></textarea>
+    <br/>
+    <br/>
+    <input type='file' maxlength='100' name='filename1' size=25>
+    <input type='file' maxlength='100' name='filename2' size=25>
+    <input type='file' maxlength='100' name='filename3' size=25>
+    <br/>
+    <input type='file' maxlength='100' name='filename4' size=25>
+    <input type='file' maxlength='100' name='filename5' size=25>
+    <input type='file' maxlength='100' name='filename6' size=25>
+    <br/>
+    <br/>
+    <input type="submit"/>
+</form>
+<br/>
+<br/>
+<br/>
+<H3> sign up (/signup) </H3>
+<form method='post' enctype="multipart/form-data" action='/signup'>
+    <br/>
+    <br/>
+    <input type="text" placeholder="이름" name="name">
+    <input type="email" placeholder="이메일" name="email">
+    <input type="password" placeholder="비밀번호" name="password">
+    <input type="text" placeholder="기수" name="grade">
+    <input type="text" placeholder="전화번호" name="phone">
+    <input type="text" placeholder="도시" name="city">
+    <input type="text" placeholder="나라" name="country">
+    <input type="text" placeholder="회사" name="company">
+    <input type="text" placeholder="직업" name="job">
+    <br/>
+    <br/>
+    <br/>
+    <input type="submit"/>
+</form>
+</body>
+</html>

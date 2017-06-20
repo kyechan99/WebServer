@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5b02d3d8-a0ef-4b3a-94ec-582d7b035634" name="My Server" url="http://222.122.203.47">
+        <fileTransfer host="222.122.203.47" port="22" rootFolder="/home/projects/KGSH/WebServer/WebServer" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
