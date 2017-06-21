@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <!--<script src="https://unpkg.com/vue"></script>-->
     <script src="javascripts/vue.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <title>KGSH Community</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/signin.css">
     <link rel="stylesheet" href="stylesheets/cover.css">
 </head>
@@ -30,31 +31,50 @@
             </div> <!-- masthead clearfix -->
 
             <div class="nner cover">
-                <form class="form-signin" id="signin_form" name="signin_form" action="signin_check.php" method="post" v-show="signup_seen === false">
-                    <input type="email" id='signin_email' name='signin_email' class="form-control" placeholder="Email address" required autofocus>
-                    <input v-if="pw_seen" type="password" id="signin_pw" name='signin_pw' class="form-control" placeholder="Password" required>
+                <form class="form-signin" id="signin_form" name="signin_form" action="signin_check.php" method="post"
+                      v-show="signup_seen === false">
+                    <input type="email" id='signin_email' name='signin_email' class="form-control"
+                           placeholder="Email address" required autofocus>
+                    <input v-if="pw_seen" type="password" id="signin_pw" name='signin_pw' class="form-control"
+                           placeholder="Password" required>
 
-                    <button v-if="!pw_seen" v-on:click="pw_see" class="btn btn-lg btn-primary btn-block" type="submit">다음 -></button>
-                    <input id='signin_BT' v-show='pw_seen' type='button'  class='btn btn-lg btn-primary btn-block' value='Login'>
+                    <button v-if="!pw_seen" v-on:click="pw_see" class="btn btn-lg btn-primary btn-block" type="submit">
+                        다음 ->
+                    </button>
+                    <input id='signin_BT' v-show='pw_seen' type='button' class='btn btn-lg btn-primary btn-block'
+                           value='Login'>
                     <a v-on:click="signup_see" class="text-capitalize" href="#signup">create account</a>
                 </form>
             </div> <!-- nner cover -->
             <div id="msg"></div>
 
             <div class="nner cover">
-                <form class="form-signin" id="signup_form" name="signup_form" action="/signup" method="post" v-show="signup_seen === true">
+                <form class="form-signin" id="signup_form" name="signup_form" action="/signup" method="post"
+                      v-show="signup_seen === true">
                     <h2 class="form-signin-heading">회원가입</h2>
 
-                    <input type="email" id='signup_email' name='signup_email' class="form-control" placeholder="Email address" onfocusout="checkInputFocousOut()" required autofocus>
-                    <input type="text" id="signup_nick" name="signup_nick" class="form-control" placeholder="Nickname" required>
-                    <input type="password" id="signup_pw" name="signup_pw" class="form-control" placeholder="Password" required>
-                    <input type="password" id="signup_repw" name="inputRePw" class="form-control" placeholder="Re Password" required>
+                    <input type="email" id='signup_email' name='signup_email' class="form-control"
+                           placeholder="Email address" onfocusout="checkInputFocousOut()" required autofocus>
+                    <input type="text" id="signup_nick" name="signup_nick" class="form-control" placeholder="Nickname"
+                           required>
+                    <input type="password" id="signup_pw" name="signup_pw" class="form-control" placeholder="Password"
+                           required>
+                    <input type="password" id="signup_repw" name="inputRePw" class="form-control"
+                           placeholder="Re Password" required>
                     <input type="text" id="signup_cp" name="signup_cp" class="form-control" placeholder="CP" required>
-                    <input type="text" id="signup_job" name="signup_job" class="form-control" placeholder="JOB" required>
-                    <input type="text" id="signup_co" name="signup_co" class="form-control" placeholder="Company" required>
-                    <input type="text" id="signup_country" name="signup_country" class="form-control" placeholder="Country" required>
-                    <input type="text" id="signup_city" name="signup_city" class="form-control" placeholder="City" required>
-                    <input type="number" id="signup_flag" name="signup_flag" class="form-control" placeholder="Flag" required>
+                    <input type="text" id="signup_job" name="signup_job" class="form-control" placeholder="JOB"
+                           required>
+                    <input type="text" id="signup_co" name="signup_co" class="form-control" placeholder="Company"
+                           required>
+                    <input type="text" id="signup_country" name="signup_country" class="form-control"
+                           placeholder="Country" required>
+                    <input type="text" id="signup_city" name="signup_city" class="form-control" placeholder="City"
+                           required>
+                    <input type="number" id="signup_flag" name="signup_flag" class="form-control" placeholder="Flag"
+                           required>
+
+                    <div class="g-recaptcha" name="recaptcha" id="recaptcha"
+                         data-sitekey="6Lf8RiYUAAAAAAV-1vxXj3QMy5wv4xxNrrCkOvx4"></div>
 
                     <div class="checkbox text-left">
                         <label>
@@ -104,13 +124,13 @@
 
     function checkInputFocousOut() {
         var form_data = {
-            email:  $("#signup_email").val()
+            email: $("#signup_email").val()
         };
-        $.ajax ({
+        $.ajax({
             type: "POST",
             url: "/signup/overlap",
             data: form_data,
-            success: function(response) {
+            success: function (response) {
                 if (response === true) {
                     $("#msg").html("이미 있는 이메일 입니다.");
                     canRegister = false;
@@ -124,21 +144,22 @@
     }
 
     // 회원가입 전송 함수
-    $(document).ready( function() {
-        $("#signup_BT").click( function() {
+    $(document).ready(function () {
+        $("#signup_BT").click(function () {
             var action = $("#signup_form").attr('action');
             var form_data = {
-                name:  $("#signup_nick").val(),
-                email:  $("#signup_email").val(),
-                password:  $("#signup_pw").val(),
-                grade:  $("#signup_flag").val(),
-                phone:  $("#signup_cp").val(),
-                city:  $("#signup_city").val(),
-                country:  $("#signup_country").val(),
-                company:  $("#signup_co").val(),
-                job:  $("#signup_job").val()
+                name: $("#signup_nick").val(),
+                email: $("#signup_email").val(),
+                password: $("#signup_pw").val(),
+                grade: $("#signup_flag").val(),
+                phone: $("#signup_cp").val(),
+                city: $("#signup_city").val(),
+                country: $("#signup_country").val(),
+                company: $("#signup_co").val(),
+                job: $("#signup_job").val(),
+                recaptcha: $("#recaptcha").val()
             };
-            if (canRegister==true) {
+            if (canRegister == true) {
                 $.ajax({
                     type: "POST",
                     url: action,
@@ -158,17 +179,17 @@
         });
 
         // 로그인 확인 함수
-        $("#signin_BT").click( function() {
+        $("#signin_BT").click(function () {
             var action = $("#signin_form").attr('action');
             var form_data = {
-                signup_email:  $("#signin_email").val(),
+                signup_email: $("#signin_email").val(),
                 is_ajax: 1
             };
-            $.ajax ({
+            $.ajax({
                 type: "POST",
                 url: action,
                 data: form_data,
-                success: function(response) {
+                success: function (response) {
                     if (response == 'success') {
                         $("#msg").html("SUCCESS");
                         $("#signin_form").slideUp('slow');
@@ -185,7 +206,7 @@
         });
     });
 </script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>
