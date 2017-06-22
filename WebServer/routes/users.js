@@ -9,8 +9,8 @@ router.get('/test', function(req, res) {
 router.get('/index', function(req, res) {
     res.render('index');
 });
-router.get('/timeline', function(req, res) {
-    res.render('timeline');
+router.get('/board', function(req, res) {
+    res.render('board');
 });
 
 module.exports = router;
