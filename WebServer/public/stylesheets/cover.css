@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
     height: 100%;
-    background: radial-gradient(#9B59B6, #46304f) fixed no-repeat;
+    background: radial-gradient(#ffffff, #a0a0a0) fixed no-repeat;
 }
 body {
     color: #fff;

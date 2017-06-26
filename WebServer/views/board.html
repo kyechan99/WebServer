@@ -4,17 +4,33 @@
     <meta charset="utf-8">
     <title>KGSH Community</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="javascripts/vue.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">-->
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
     <link rel="stylesheet" href="stylesheets/timeline.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: 'Nanum Gothic Coding', serif;
+        }
+    </style>
 </head>
-<body>
+
+<body class="w3-light-grey">
+
+<nav class="navbar navbar-fixed-bottom ">
+    <button class="btn btn-default pull-right top">
+        <img src="https://www.shareicon.net/download/2015/10/05/651432_arrows_512x512.png" width="20" height="20"/> 맨위로
+    </button>
+</nav><!-- 위로 버튼 -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar_top">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <!-- 모바일 화면에 메뉴 축소 판 -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -24,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">KG</a>
+            <a class="navbar-brand" href="index">KG</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -32,6 +48,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">타임라인 <span class="sr-only">(current)</span></a></li>
             </ul>
+
             <!-- 검색 창 -->
             <form class="navbar-form navbar-left">
                 <div class="form-group has-feedback has-feedback-left">
@@ -48,100 +65,241 @@
                        data-toggle="dropdown" role="button"
                        aria-haspopup="true"
                        aria-expanded="false">
-                        <span class="glyphicon glyphicon-user"> 강예찬 <span class="caret"></span></a>
+                        <span class="glyphicon glyphicon-user"> 강예찬 </span>
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">내 정보</a></li>
+                        <li><a href="#" class="top">내 정보</a></li>
                         <li><a href="#">환경 설정</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">로그아웃</a></li>
                     </ul>
                 </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+        </div><!-- navbar-collapse -->
+    </div><!-- container-fluid -->
+</nav><!-- navbar-inverse -->
 
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 
+<div class="w3-content" style="max-width:1400px">
 
-<div class="container">
-    <div class="card">
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">최신순</a>
+    <header class="w3-container w3-center w3-padding-32">
+        <h1><b>KGSH Community</b></h1>
+        <p>안녕하세요. <span class="w3-tag">강예찬</span> 님</p>
+    </header>
+
+    <div class="w3-row">
+        <div class="w3-col l4">
+            <div class="w3-card-2 w3-margin w3-margin-top">
+                <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" style="width:100%">
+                <div class="w3-container w3-white">
+                    <h4><b>강예찬</b></h4>
+                    <p>겁나 잘나고 못하는게 없는, 그냥 천재</p>
+                    <p>나라의 보물</p>
+                </div>
+            </div><!-- 개인 -->
+
+            <hr>
+
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4>Sexy Posts</h4>
+                </div>
+                <ul class="w3-ul w3-hoverable w3-white">
+                    <li class="w3-padding-16" onclick="location.href='/#';">
+                        <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
+                             class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">A</span><br>
+                        <span>AAA</span>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">섹스순</a>
+                    <li class="w3-padding-16" onclick="location.href='/#;">
+                        <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
+                             class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">B</span><br>
+                        <span>BBBB</span>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#"></a>
+                    <li class="w3-padding-16" onclick="location.href='/#';">
+                        <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
+                             class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">C</span><br>
+                        <span>CCCC</span>
+                    </li>
+                    <li class="w3-padding-16 w3-hide-medium w3-hide-small" onclick="location.href='/#';">
+                        <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
+                             class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">D</span><br>
+                        <span>DDDDD</span>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </div>
-</div>
+            </div><!-- Posts 창 -->
 
-<br/>
-<br/>
-<br/>
+            <hr>
 
-<div class="container">
-    <div class="col-xs-12 col-md-4">
-    </div>
-    <div class="col-md-4" id="timeline_col">
-        <div class="thumbnail">
-            <a href="">
-                <img class="img-responsive img-rounded" src="https://pexels.imgix.net/photos/7919/pexels-photo.jpg"
-                     alt="Lights" style="width:100%">
-                <hr class="style15">
-                <div class="caption">
-                    <h4 class="card-title">충격 윤준서 좌측 꼭지 실종되어...</h4>
-                    <h6 class="text-muted">@김덕원(님)이 작성</h6>
-                    <p>한국게임과학고등학교 3학년 프로그래밍 전공 윤준서군의 좌측 젖꼭지가 실종되어 화제이다. 이에 전교성이 모두 충격먹어 응급실로 실려간 사람이 4명이며 정확한 실종 원인과 사라진
-                        젖꼭지를 찾고있다...</p>
-                    <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4>Tags</h4>
+                </div>
+                <div class="w3-container w3-white">
+                    <p>
+                        <span class="w3-tag w3-black w3-margin-bottom">#강예찬</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">#훈남</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">#존잘</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">#매력있어</span>
                     </p>
                 </div>
-            </a>
-        </div>
-        <div class="thumbnail">
-            <a href="">
-                <img class="img-responsive img-rounded" src="https://pexels.imgix.net/photos/7919/pexels-photo.jpg"
-                     alt="Lights" style="width:100%">
-                <hr class="style15">
-                <div class="caption">
-                    <h4 class="card-title">충격 윤준서 좌측 꼭지 실종되어...</h4>
-                    <h6 class="text-muted">@김덕원(님)이 작성</h6>
+            </div><!-- Tag 창 -->
+        </div><!-- 우측 메뉴 -->
+
+        <div class="w3-col l8 s12" id="timeline_col">
+
+            <div class="card">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">최신순</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">순</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- card -->
+
+            <div class="w3-card-4 w3-margin w3-white">
+                <hr>
+                <form id="myboard" name="myboard" action="#">
+                    <div class="form-group">
+                        <h6 for="exampleTextarea"> &nbsp;&nbsp; 내 소식을 친구에게 전하세요!</h6>
+
+                        <!-- 작성 란 -->
+                        <div v-show="isWriting === true">
+                                <textarea class="form-control" id="exampleTextarea"
+                                          style="border:none; height:150px; resize:none;" placeholder="내용"></textarea>
+                            <br/>
+                            <label class="custom-file" style="margin-left: 10px;">
+                                <input type="file" id="file" class="custom-file-input">
+                                <span class="custom-file-control"></span>
+                            </label>
+                            <br/>
+                            <br/>
+                            <a v-on:click="wantWrite" class="btn btn-sm btn-danger pull-left"
+                               style="margin-left: 10px;">
+                                닫기
+                            </a>
+                            <button class="btn btn-info pull-right" type="submit" style="margin-right: 10px;">완료
+                            </button>
+                        </div>
+                        <br/>
+                        <div v-show="isWriting === false">
+                            <a v-on:click="wantWrite" class="btn btn-default" style="margin-left: 10px;">
+                                <img src="https://www.phplist.org/wp-content/uploads/2014/02/write-black.png"
+                                     width="20"/> 작성
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+            </div> <!-- w3-card-4 글 작성 부분 -->
+
+            <hr>
+
+            <div class='w3-card-4 w3-margin w3-white'>
+                <img src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg' alt='Nature' style='width:100%'>
+                <hr class='style15'>
+                <div class='w3-container'>
+                    <h3><b>충격 윤준서 좌측 꼭지 실종되어...</b></h3>
+                    <h5>@김덕원(님)이 작성, <span class='w3-opacity'>3분전에 작성</span></h5>
+                </div><!-- w3-container 포스트 상단 제목 부분 -->
+
+                <div class='w3-container'>
                     <p>한국게임과학고등학교 3학년 프로그래밍 전공 윤준서군의 좌측 젖꼭지가 실종되어 화제이다. 이에 전교성이 모두 충격먹어 응급실로 실려간 사람이 4명이며 정확한 실종 원인과 사라진
                         젖꼭지를 찾고있다...</p>
-                    <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
-                </div>
-            </a>
-        </div>
+                    <div class='w3-row'>
+                        <div class='w3-col m8 s12'>
+                            <a href='/#'>
+                                <button class='w3-button w3-padding-large w3-white w3-border'><b>READ MORE »</b>
+                                </button>
+                            </a>
+                            <p></p>
+                        </div>
+                        <div class='w3-col m4 w3-hide-small'>
+                            <p>
+                                <span class='w3-padding-large w3-right'>
+                                <b>Comments  </b>
+                                <span class='w3-tag'>2</span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- w3-container 포스트 하단 설명 부분 -->
+            </div><!-- 포스트 w3-card-4 -->
+
+            <hr>
+
+            <div class='w3-card-4 w3-margin w3-white'>
+                <img src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg' alt='Nature' style='width:100%'>
+                <hr class='style15'>
+                <div class='w3-container'>
+                    <h3><b>충격 윤준서 좌측 꼭지 실종되어...</b></h3>
+                    <h5>@김덕원(님)이 작성, <span class='w3-opacity'>3분전에 작성</span></h5>
+                </div><!-- w3-container 포스트 상단 제목 부분 -->
+
+                <div class='w3-container'>
+                    <p>한국게임과학고등학교 3학년 프로그래밍 전공 윤준서군의 좌측 젖꼭지가 실종되어 화제이다. 이에 전교성이 모두 충격먹어 응급실로 실려간 사람이 4명이며 정확한 실종 원인과 사라진
+                        젖꼭지를 찾고있다...</p>
+                    <div class='w3-row'>
+                        <div class='w3-col m8 s12'>
+                            <a href='/#'>
+                                <button class='w3-button w3-padding-large w3-white w3-border'><b>READ MORE »</b>
+                                </button>
+                            </a>
+                            <p></p>
+                        </div>
+                        <div class='w3-col m4 w3-hide-small'>
+                            <p>
+                                <span class='w3-padding-large w3-right'>
+                                <b>Comments  </b>
+                                <span class='w3-tag'>2</span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><!-- w3-container 포스트 하단 설명 부분 -->
+            </div><!-- 포스트 w3-card-4 -->
+
+            <hr>
+        </div><!-- 좌측 메뉴 -->
     </div>
+    <br>
+
+    <!-- END w3-content -->
 </div>
 
 
+<br/>
+<br/>
+<br/>
+
+<script src="javascripts/board.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    // 스크롤 맨 위로 올리기
+    $('.top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 400);
+        return false;
+    });
+
+    // 스크롤 관리 스크립트
     (function ($) {
-
         $.fn.endlessScroll = function (options) {
-
             var defaults = {
                 bottomPixels: 50,
                 fireOnce: true,
@@ -227,7 +385,7 @@
 
     })(jQuery);
 
-    // Script
+    // 스크롤 맨 마지막일때 호출됨
     $(document).ready(function () {
         $(document).endlessScroll({
             inflowPixels: 300,
@@ -244,14 +402,31 @@
                     }
                 });
                 var $img = $('#images li:nth-last-child(5)').clone();
-                $('#timeline_col').append("" +
-                    "<div class='thumbnail'>" +
-                    "<a href=''>" +
-                    "<img class='img-responsive img-rounded' src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg?fit=crop&w=1280&h=720' alt='Lights' style='width:100%'>" +
-                    "<div class='caption'> " +
-                    "<p>가나나ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㄴㅁㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㅏㅏ</p>" +
+                $('#timeline_col').append(
+                    "<div class='w3-card-4 w3-margin w3-white'>" +
+                    "<img src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg' alt='Nature' style='width:100%'>" +
+                    "<hr class='style15'>" +
+                    "<div class='w3-container'>" +
+                    "<h3><b>충격 윤준서 좌측 꼭지 실종되어...</b></h3>" +
+                    "<h5>@김덕원(님)이 작성, <span class='w3-opacity'>3분전에 작성</span></h5>" +
                     "</div>" +
+
+                    "<div class='w3-container'>" +
+                    "<p>한국게임과학고등학교 3학년 프로그래밍 전공 윤준서군의 좌측 젖꼭지가 실종되어 화제이다. 이에 전교성이 모두 충격먹어 응급실로 실려간 사람이 4명이며 정확한 실종 원인과 사라진 젖꼭지를 찾고있다...</p>" +
+                    "<div class='w3-row'>" +
+                    "<div class='w3-col m8 s12'>" +
+                    "<a href='/#'>" +
+                    "<button class='w3-button w3-padding-large w3-white w3-border'><b>READ MORE »</b>" +
+                    "</button>" +
                     "</a>" +
+                    "<p>" +
+                    "</p>" +
+                    "</div>" +
+                    "<div class='w3-col m4 w3-hide-small'>" +
+                    "<p><span class='w3-padding-large w3-right'><b>Comments  </b> <span class='w3-tag'>2</span></span></p>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
                     "</div>"
                 );
             }

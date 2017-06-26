@@ -10,12 +10,6 @@ var login = new Vue({
         },
         signup_see : function() {
             this.signup_seen = this.signup_seen ? false : true;
-        },
-        login_check : function() {
-
-        },
-        signup_check : function() {
-
         }
     }
 })
