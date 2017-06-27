@@ -11,7 +11,9 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
-    <link rel="stylesheet" href="stylesheets/timeline.css">
+    <link rel="stylesheet" href="stylesheets/animate.css">
+    <link rel="stylesheet" href="stylesheets/board.css">
+    <link rel="stylesheet" href="stylesheets/line.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
@@ -24,10 +26,12 @@
 <body class="w3-light-grey">
 
 <nav class="navbar navbar-fixed-bottom ">
-    <button class="btn btn-default pull-right top">
+    <button class="btn btn-default pull-right pull-bottom top" style="    margin-top: 15px;">
         <img src="https://www.shareicon.net/download/2015/10/05/651432_arrows_512x512.png" width="20" height="20"/> 맨위로
     </button>
 </nav><!-- 위로 버튼 -->
+<!--
+<a href="#layer2" class="btn-example">딤처리 팝업레이어 1sdf</a>-->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar_top">
     <div class="container-fluid">
@@ -83,17 +87,17 @@
 <br/>
 <br/>
 
-<div class="w3-content" style="max-width:1400px">
-
+<div class="w3-content" style="max-width:900px">
     <header class="w3-container w3-center w3-padding-32">
-        <h1><b>KGSH Community</b></h1>
-        <p>안녕하세요. <span class="w3-tag">강예찬</span> 님</p>
+        <h1 class="w3-animate-top"><b>KGSH Community</b></h1>
+        <p class="w3-animate-fading">안녕하세요. <span class="w3-tag">강예찬</span> 님</p>
     </header>
 
     <div class="w3-row">
         <div class="w3-col l4">
             <div class="w3-card-2 w3-margin w3-margin-top">
-                <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" style="width:100%">
+                <img class=" w3-hide-medium w3-hide-small"
+                     src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" style="width:100%">
                 <div class="w3-container w3-white">
                     <h4><b>강예찬</b></h4>
                     <p>겁나 잘나고 못하는게 없는, 그냥 천재</p>
@@ -103,24 +107,25 @@
 
             <hr>
 
+
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
                     <h4>Sexy Posts</h4>
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
-                    <li class="w3-padding-16" onclick="location.href='/#';">
+                    <li class="w3-padding-16 w3-hide-medium w3-hide-small" onclick="location.href='/#';">
                         <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
                              class="w3-left w3-margin-right" style="width:50px">
                         <span class="w3-large">A</span><br>
                         <span>AAA</span>
                     </li>
-                    <li class="w3-padding-16" onclick="location.href='/#;">
+                    <li class="w3-padding-16 w3-hide-medium w3-hide-small" onclick="location.href='/#;">
                         <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
                              class="w3-left w3-margin-right" style="width:50px">
                         <span class="w3-large">B</span><br>
                         <span>BBBB</span>
                     </li>
-                    <li class="w3-padding-16" onclick="location.href='/#';">
+                    <li class="w3-padding-16 w3-hide-medium w3-hide-small" onclick="location.href='/#';">
                         <img src="https://avatars0.githubusercontent.com/u/14146566?v=3&s=460" alt="Image"
                              class="w3-left w3-margin-right" style="width:50px">
                         <span class="w3-large">C</span><br>
@@ -184,7 +189,7 @@
                                           style="border:none; height:150px; resize:none;" placeholder="내용"></textarea>
                             <br/>
                             <label class="custom-file" style="margin-left: 10px;">
-                                <input type="file" id="file" class="custom-file-input">
+                                <input type="file" id="file" class="custom-file-input w3-animate-input">
                                 <span class="custom-file-control"></span>
                             </label>
                             <br/>
@@ -210,17 +215,16 @@
 
             <hr>
 
-            <div class='w3-card-4 w3-margin w3-white'>
+            <div class='w3-card-4 w3-margin w3-white animated lightSpeedIn'>
                 <img src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg' alt='Nature' style='width:100%'>
-                <hr class='style15'>
+                <hr class='style13'>
                 <div class='w3-container'>
                     <h3><b>충격 윤준서 좌측 꼭지 실종되어...</b></h3>
                     <h5>@김덕원(님)이 작성, <span class='w3-opacity'>3분전에 작성</span></h5>
                 </div><!-- w3-container 포스트 상단 제목 부분 -->
-
-                <div class='w3-container'>
+                <div class='w3-container' id="wrapper">
                     <p>한국게임과학고등학교 3학년 프로그래밍 전공 윤준서군의 좌측 젖꼭지가 실종되어 화제이다. 이에 전교성이 모두 충격먹어 응급실로 실려간 사람이 4명이며 정확한 실종 원인과 사라진
-                        젖꼭지를 찾고있다...</p>
+                        젖꼭지를 찾고있다aaaaaaaaaaaaaaa...</p>
                     <div class='w3-row'>
                         <div class='w3-col m8 s12'>
                             <a href='/#'>
@@ -243,7 +247,7 @@
 
             <hr>
 
-            <div class='w3-card-4 w3-margin w3-white'>
+            <div class='w3-card-4 w3-margin w3-white animated flash'>
                 <img src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg' alt='Nature' style='width:100%'>
                 <hr class='style15'>
                 <div class='w3-container'>
@@ -290,7 +294,35 @@
 <script src="javascripts/board.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="javascripts/dot/jquery.dotdotdot.js"></script>
 <script type="text/javascript">
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+    $(document).ready(function () {
+        $("#wrapper").dotdotdot({
+            after: "a.readmore"
+        });
+    });
+
     // 스크롤 맨 위로 올리기
     $('.top').click(function () {
         $('html, body').animate({scrollTop: 0}, 400);
@@ -390,6 +422,9 @@
         $(document).endlessScroll({
             inflowPixels: 300,
             callback: function () {
+                var anim = " animated bounceInRight ";
+                if( isMobile.any() )
+                    anim = " ";
                 var form_data = {
                     page: 0
                 };
@@ -403,7 +438,7 @@
                 });
                 var $img = $('#images li:nth-last-child(5)').clone();
                 $('#timeline_col').append(
-                    "<div class='w3-card-4 w3-margin w3-white'>" +
+                    "<div class='w3-card-4 w3-margin w3-white" + anim + "'>" +
                     "<img src='https://pexels.imgix.net/photos/7919/pexels-photo.jpg' alt='Nature' style='width:100%'>" +
                     "<hr class='style15'>" +
                     "<div class='w3-container'>" +
